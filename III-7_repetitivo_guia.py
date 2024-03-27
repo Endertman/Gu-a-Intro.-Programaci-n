@@ -1,6 +1,8 @@
 init = int(input('Bienvenido al programa para calcular area de formas geometricas, Presione 1 para continuar ->  '))
+
 while init == 1:
   forma = int(input('Seleccione una de las siguentes formas: \n1. Cuadrado \n2. Circulo \n3. Triangulo \n -->'))
+  
   if forma == 1:
     lado = int(input('Ingrese el valor del lado: '))
     area = lado * lado
