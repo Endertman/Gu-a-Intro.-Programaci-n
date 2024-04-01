@@ -1,51 +1,81 @@
 print('Bienvenido al programa para procesar encuestas')
 encuestados = int(input('Ingrese la cantidad de encuestados: '))
 
-num_hombres_casados_mayores_25 = 0
-num_hombres_solteros_marrones_20_45_mas_2000 = 0
-num_hombres_menores_40_mas_3000 = 0
-num_mujeres_solteras_azules_30_mas_4000 = 0
+#promedio de edad de mujeres casadas de ojos negros que ganan mas de 3000
 suma_edades_mujeres_casadas_negros_mas_3000 = 0
 contador_mujeres_casadas_negros_mas_3000 = 0
+
+#numero de mujeres solteras de ojos azules de 30 años que ganan mas de 4000
+num_mujeres_solteras_azules_30_mas_4000 = 0
+
+#numero hombres casados de mas_ de 25 que ganan mas de 1000
+num_hombres_casados_mayores_25_1000 = 0
+
+#numero hombres solteros de ojos marrones de 20 a 45 años que ganan mas de 2000
+num_hombres_solteros_marrones_20_45_mas_2000 = 0
+
+#numero hombres menores de 40 que ganan mas de 3000
+num_hombres_menores_40_mas_3000 = 0
+
+#Promedio de sueldo de empleados mayores de 40 y sueldo mayor a 5000
 suma_sueldos_mayores_40_mas_5000 = 0
 contador_sueldos_mayores_40_mas_5000 = 0
 
-for i in range(0, encuestados):
-  edad = int(input("Edad: "))
-  sexo = input("Sexo (H/M): ").lower
-  salario = int(input("Salario: "))
-  color_ojos = input(
-      "Color de ojos (1. azules, 2. marrones, 3. negros): ").lower
-  estado_civil = input("Estado civil (1. casado, 2. soltero): ").lower
-
-  if sexo == 'h' or sexo == 'hombre':
-
-    if estado_civil == "casado" or estado_civil == "1" and edad > 25 and salario > 1000:
-      num_hombres_casados_mayores_25 += 1
-    elif estado_civil == "soltero" or estado_civil == "2" and color_ojos == "2" and 20 <= edad <= 45 and salario > 2000:
-      num_hombres_solteros_marrones_20_45_mas_2000 += 1
-    elif edad < 40 and salario > 3000:
-      num_hombres_menores_40_mas_3000 += 1
-
-  elif sexo == "M":
-
-    if estado_civil == "soltero" or estado_civil == "2" and color_ojos == "1" and edad == 30 and salario > 4000:
-      num_mujeres_solteras_azules_30_mas_4000 += 1
-    elif estado_civil == "casado" or estado_civil == "1" and color_ojos == "3" and salario > 3000:
+for i in range(0,encuestados):
+  sexo = int(input('Ingrese sexo (1. Femenino, 2. Masculino: )'))
+  edad = int(input('Ingrese edad: '))
+  sueldo = int(input('Ingrese el sueldo: '))
+  estado_civil = int(input('Ingrese el estado civil (1. Casado, 2. Soltero: )'))
+  
+  if sexo == 1:
+    ojos = int(input('Ingrese el color de ojos (1. azul, 2. marron 3. negro): '))
+    if estado_civil == 1 and sueldo > 3000 and ojos == 3:
       suma_edades_mujeres_casadas_negros_mas_3000 += edad
       contador_mujeres_casadas_negros_mas_3000 += 1
-
-  if edad > 40 and salario > 5000:
-    suma_sueldos_mayores_40_mas_5000 += salario
+    else:
+      if edad == 30 and sueldo > 4000 and ojos == 1:
+        num_mujeres_solteras_azules_30_mas_4000 += 1
+  else:
+    if edad > 25 and sueldo > 1000:
+      num_hombres_casados_mayores_25_1000 += 1
+    elif edad > 20 and sueldo > 2000:
+      ojos = int(input('Ingrese el color de ojos (1. azul, 2. marron 3. negro): '))
+      if ojos == 2:
+        num_hombres_solteros_marrones_20_45_mas_2000 += 1
+    elif edad < 40 and sueldo > 3000: 
+      num_hombres_menores_40_mas_3000 += 1
+    
+  if edad > 40 and sueldo > 5000:
+    suma_sueldos_mayores_40_mas_5000 += sueldo
     contador_sueldos_mayores_40_mas_5000 += 1
+  
+if contador_mujeres_casadas_negros_mas_3000 != 0:
+  print(f'EL promedio de edad de mujeres casadas de ojos negros que ganan mas de 3000 es {suma_edades_mujeres_casadas_negros_mas_3000 / contador_mujeres_casadas_negros_mas_3000}')
+else:
+  print('No se registro eL promedio de edad de mujeres casadas de ojos negros que ganan mas de 3000')
+ 
+print(f'El numero de mujeres solteras de ojos azules de 30 años que ganan mas de 4000 es {num_mujeres_solteras_azules_30_mas_4000}')
 
-print("Número de hombres casados mayores de 25 que ganan más de 1000:",
-      num_hombres_casados_mayores_25)
-print(
-    "Número de hombres solteros de ojos marrones de 20 a 45 años que ganan más de 2000:",
-    num_hombres_solteros_marrones_20_45_mas_2000)
-print("Número de hombres menores de 40 que ganan más de 3000:",
-      num_hombres_menores_40_mas_3000)
-print(
-    "Número de mujeres solteras de ojos azules de 30 años que ganan más de 4000:",
-    num_mujeres_solteras_azules_30_mas_4000)
+print(f'El numero hombres casados de mas de 25 que ganan mas de 1000 es {num_hombres_casados_mayores_25_1000}')
+
+print(f'El numero hombres solteros de ojos marrones de 20 a 45 años que ganan mas de 2000 es {num_hombres_solteros_marrones_20_45_mas_2000}')
+
+print(f'El numero hombres menores de 40 que ganan mas de 3000 es {num_hombres_menores_40_mas_3000}')
+
+if contador_sueldos_mayores_40_mas_5000 != 0:
+  print(f'El promedio de sueldo de empleados mayores de 40 y sueldo mayor a 5000 {suma_sueldos_mayores_40_mas_5000/contador_sueldos_mayores_40_mas_5000}')
+else: 
+  print('No se registro el promedio de sueldo de empleados mayores de 40 y sueldo mayor a 5000 ')
+ 
+
+      
+        
+
+    
+  
+
+
+
+
+
+
