@@ -14,7 +14,7 @@ edad_hombres_casados = 0
 hombres_casados_menores_edad = 0  
 
 
-for i in range(num):
+for i in range(0,8):
   
   sexo = input("ingrese el sexo (1. Femenino, 2. Masculino ): ").lower()
   edad = int(input("ingrese la edad: "))
