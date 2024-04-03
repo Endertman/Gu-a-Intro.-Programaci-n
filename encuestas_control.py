@@ -67,7 +67,12 @@ if contador_sueldos_mayores_40_mas_5000 != 0:
 else: 
   print('No se registro el promedio de sueldo de empleados mayores de 40 y sueldo mayor a 5000 ')
  
-
+#Datos para probar
+  #Mujer soltera, 30 años, sueldo: 4500, ojos: azul
+  #Hombre casado, 28 años, sueldo: 1500
+  #Hombre soltero, 40 años, sueldo: 2200, ojos: marrón
+  #Hombre soltero, 27 años, sueldo: 2800, ojos: marrón
+  #Hombre casado, 45 años, sueldo: 6000
       
         
 
